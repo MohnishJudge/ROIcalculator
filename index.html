@@ -1,1 +1,114 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ROI Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body onload="onLoad()">
+    <div class="header">
+      <h1>Investment Property Tool</h1>
+      <p>This tool is made to calculate first year returns in investment properties. This does not substitute legal or tax advice.</p>
+    </div>
+    <form>
+      <div class="input-field">
+        <label for="purchasePrice">Enter purchase price ($):</label>
+        <input type="text" id="purchasePrice" name="purchasePrice" placeholder="e.g. 500000">
+      </div>
+
+      <div class="input-field">
+        <label for="downPayment">Enter down payment ($):</label>
+        <input type="text" id="downPayment" name="downPayment" placeholder="e.g. 125000">
+      </div>
+
+      <div class="input-field">
+        <div>
+          <label for="depreciationRate">Are personal property, building, and land improvement value known?</label>
+
+          <input class="option" type="button" onclick="depreciationRateYes()" value="Yes" id="depreciationRateYesBtn">
+          <input class="option" type="button" onclick="depreciationRateNo()" value="No" id="depreciationRateNoBtn">
+        </div>
+
+        <div id="depreciationRateYesDiv" style="display: none;">
+          <div class="input-field">
+            <label for="personalProperty">Enter personal property value ($):</label>
+            <input type="text" id="personalProperty" name="personalProperty" placeholder="e.g. 45000">
+          </div>
+
+          <div class="input-field">
+            <label for="building">Enter building value ($):</label>
+            <input type="text" id="building" name="building" placeholder="e.g. 320000">
+          </div>
+
+          <div class="input-field">
+            <label for="landImprovement">Enter land improvement value ($):</label>
+            <input type="text" id="landImprovement" name="landImprovement" placeholder="e.g. 35000">
+          </div>
+        </div>
+
+        <div id="depreciationRateNoDiv" class="input-field" style="display: none;">
+          <p>Use 3.6%, the average annual depreciation rate, or ask your accountant.</p>
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="annualRent">Enter annual rent collected ($):</label>
+        <input type="text" id="annualRent" name="annualRent" placeholder="e.g. 25000">
+      </div>
+
+      <div class="input-field">
+        <label for="operatingExpenses">Enter total operating expenses ($):</label>
+        <input type="text" id="operatingExpenses" name="operatingExpenses" placeholder="e.g. 15000">
+      </div>
+
+      <div class="input-field">
+        <label for="principalInterest">Enter monthly principal and interest ($):</label>
+        <input type="text" id="principalInterest" name="principalInterest" placeholder="e.g. 1769">
+      </div>
+
+      <div class="input-field">
+        <label for="firstYearInterest">Enter 1st year interest paid ($):</label>
+        <input type="text" id="firstYearInterest" name="firstYearInterest" placeholder="e.g. 14506">
+      </div>
+
+      <div class="input-field">
+        <label for="taxBracketRate">Enter tax bracket rate (%):</label>
+        <input type="text" id="taxBracketRate" name="taxBracketRate" placeholder="e.g. 35">
+      </div>
+
+      <div class="input-field">
+        <div>
+          <label for="apperciationRate">Is apperciation rate known?</label>
+
+          <input class="option" type="button" onclick="appreciationRateYes()" value="Yes" id="appreciationRateYesBtn">
+          <input class="option" type="button" onclick="appreciationRateNo()" value="No" id="appreciationRateNoBtn">
+        </div>
+
+        <div id="appreciationRateYesDiv" style="display: none;" class="input-field">
+          <label for="appreciationRate">Enter apperciation rate (%):</label>
+          <input type="text" id="appreciationRate" name="appreciationRate" placeholder="e.g. 3">
+        </div>
+
+        <div id="appreciationRateNoDiv" style="display: none;" class="input-field">
+          <p>Use 3.5%, the average annual apperciation rate.</p>
+        </div>
+      </div>
+
+      <div class="input-field">
+        <input class="calculate" type="button" onclick="calculate()" value="Calculate ROI">
+        
+        <br>
+
+        <div class="input-field">
+          <label for="calculate" id="roiWithoutLabel">ROI without appreciation: -</label>
+        </div>
+
+        <div class="input-field">
+          <label for="calculate" id="roiWithLabel">ROI with appreciation: -</label>
+        </div>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
