@@ -73,3 +73,27 @@ input[type=text]:focus {
 .calculate:hover {
     background-color: #792626;
 }
+
+a:link {
+    color: #00d9ff; 
+    background-color: transparent; 
+    text-decoration: underline;
+  }
+  
+  a:visited {
+    color: #00d9ff;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: #20799c;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    color: #20799c;
+    background-color: transparent;
+    text-decoration: underline;
+  }
